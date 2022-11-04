@@ -7,6 +7,9 @@
 int _putchar (char c);
 int _printf(const char *format, ...);
 int print_str(char *str1);
+int abs(int x);
+int _pow(int a, int b);
+int print_int(int n);
 
 #endif
 

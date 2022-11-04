@@ -1,6 +1,6 @@
 CC = gcc
 OBJDIR = ./obj_files
-SRC = _printf.c _putchar.c 0-main.c op_functions.c
+SRC = _printf.c _putchar.c 0-main.c op_functions.c math.c
 _OBJ = $(patsubst %c,%o,$(SRC))
 OBJ = $(patsubst %.c, $(OBJDIR)/%.o,$(SRC))
 DEPS = main.h

@@ -19,3 +19,29 @@ int print_str(char *str1)
 	return (counter);
 
 }
+
+/**
+ * print_int - print an int.
+ * @n: int
+ *
+ * Return: number of characters printed
+ */
+
+int print_int(int n)
+{
+	int x, i, count = 0, t = 0;
+
+	if (n < 0)
+		_putchar('-');
+	for (i = 9; i > 0; i--)
+	{
+		if (n / _pow(10, i) != 0)
+			t = 1;
+		if (n / _pow(10, i) == 0 && t == 0)
+			continue;
+
+		x = abs((n / _pow(10, i) % 10));
+		count += _putchar(x + '0');
+	}
+	return (count);
+}
