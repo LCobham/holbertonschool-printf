@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 
 	if (format == NULL)
-		return (0);
+		exit (98);
 	va_start(ap, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == '\0')
 			{
-				return (counter);
+				exit(99);
 			}
 			else
 				counter += _putchar('%');
