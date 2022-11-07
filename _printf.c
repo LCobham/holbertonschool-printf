@@ -9,7 +9,7 @@
 
 int _printf(const char *format, ...)
 {
-	char ch, *str;
+	char F;
 	int i = 0, counter = 0;
 	va_list ap;
 
@@ -22,29 +22,30 @@ int _printf(const char *format, ...)
 			counter += _putchar(format[i]);
 		else
 		{
-			if (format[i + 1] == 'c')
+			F = format[i + 1];
+			switch (F)
 			{
-				ch = va_arg(ap, int);
-				counter += _putchar(ch);
+				case 'c':
+					counter += _putchar(va_arg(ap, int));
+					break;
+				case 's':
+					counter += print_str(va_arg(ap, char *));
+					break;
+				case 'd':
+				case 'i':
+					counter += print_int(va_arg(ap, int));
+					break;
+				case '%':
+					counter += _putchar('%');
+					break;
+				case '\0':
+					exit(99);
+				default:
+					counter += _putchar('%');
+					break;
+			}
+			if (F == 'c' || F == 's' || F == 'd' || F == 'i' || F == '%')
 				i++;
-			}
-			else if (format[i + 1] == 's')
-			{
-				str = va_arg(ap, char *);
-				counter += print_str(str);
-				i++;
-			}
-			else if (format[i + 1] == '%')
-			{
-				counter += _putchar('%');
-				i++;
-			}
-			else if (format[i + 1] == '\0')
-			{
-				exit(99);
-			}
-			else
-				counter += _putchar('%');
 		}
 	}
 	va_end(ap);

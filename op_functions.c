@@ -33,9 +33,9 @@ int print_int(int n)
 
 	if (n < 0)
 		_putchar('-');
-	for (i = 9; i > 0; i--)
+	for (i = 9; i >= 0; i--)
 	{
-		if (n / _pow(10, i) != 0)
+		if (n / _pow(10, i) != 0 || i == 0)
 			t = 1;
 		if (n / _pow(10, i) == 0 && t == 0)
 			continue;
