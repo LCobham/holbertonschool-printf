@@ -2,17 +2,23 @@
 
 /**
  * print_str - print a string.
- * @str1: string to print in stdout.
+ * @ap: argument pointer, currently pointing at str
  *
  *Return: the number of characters printed.
  */
 
-int print_str(char *str1)
+int print_str(va_list ap)
 {
 	int i = 0, counter = 0;
+	char *str1 = va_arg(ap, char *), *null = "(null)";
 
 	if (str1 == NULL)
-		return (print_str("(null)"));
+	{
+		for (i = 0; null[i] != '\0'; i++)
+			counter += _putchar(null[i]);
+		return (counter);
+	}
+
 	for (i = 0; str1[i] != '\0'; i++)
 		counter += _putchar(str1[i]);
 
@@ -22,14 +28,15 @@ int print_str(char *str1)
 
 /**
  * print_int - print an int.
- * @n: int
+ * @ap: argument pointer, currently pointing at int
  *
  * Return: number of characters printed
  */
 
-int print_int(int n)
+int print_int(va_list ap)
 {
 	int x, i, count = 0, t = 0;
+	int n = va_arg(ap, int);
 
 	if (n < 0)
 		_putchar('-');

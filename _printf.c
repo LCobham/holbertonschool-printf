@@ -29,11 +29,11 @@ int _printf(const char *format, ...)
 					counter += _putchar(va_arg(ap, int));
 					break;
 				case 's':
-					counter += print_str(va_arg(ap, char *));
+					counter += print_str(ap);
 					break;
 				case 'd':
 				case 'i':
-					counter += print_int(va_arg(ap, int));
+					counter += print_int(ap);
 					break;
 				case '%':
 					counter += _putchar('%');
