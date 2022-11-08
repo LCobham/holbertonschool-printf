@@ -15,10 +15,15 @@ int (*get_fun(char mych))(va_list)
 		{'s', print_str},
 		{'d', print_int},
 		{'i', print_int},
-		{'%', print_percent}
+		{'%', print_percent},
+		{'b', print_binary},
+		{'u', print_unsigned},
+		{'o', print_octal},
+		{'x', print_hex},
+		{'\0', NULL}
 	};
 
-	for (i = 0; i < 5; i++)
+	for (i = 0; ar[i].ch != '\0'; i++)
 	{
 		if (mych == ar[i].ch)
 			return (ar[i].f);

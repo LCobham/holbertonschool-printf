@@ -25,6 +25,11 @@ int print_int(va_list ap);
 int print_char(va_list ap);
 int print_percent(va_list __attribute__ ((unused)) ap);
 int (*get_fun(char mych))(va_list);
+int print_binary(va_list ap);
+int print_unsigned(va_list ap);
+int print_octal(va_list ap);
+int print_hex(va_list ap);
+unsigned long int long_pow(int a, int b);
 
 #endif
 

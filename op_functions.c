@@ -42,12 +42,12 @@ int print_int(va_list ap)
 		count += _putchar('-');
 	for (i = 9; i >= 0; i--)
 	{
-		if (n / _pow(10, i) != 0 || i == 0)
+		if (n / (int) _pow(10, i) != 0 || i == 0)
 			t = 1;
-		if (n / _pow(10, i) == 0 && t == 0)
+		if (n / (int) _pow(10, i) == 0 && t == 0)
 			continue;
 
-		x = abs((n / _pow(10, i) % 10));
+		x = abs((n / (int) _pow(10, i) % 10));
 		count += _putchar(x + '0');
 	}
 	return (count);
