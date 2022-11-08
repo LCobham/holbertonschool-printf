@@ -39,7 +39,7 @@ int print_int(va_list ap)
 	int n = va_arg(ap, int);
 
 	if (n < 0)
-		_putchar('-');
+		count += _putchar('-');
 	for (i = 9; i >= 0; i--)
 	{
 		if (n / _pow(10, i) != 0 || i == 0)
