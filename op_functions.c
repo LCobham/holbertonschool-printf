@@ -52,3 +52,32 @@ int print_int(va_list ap)
 	}
 	return (count);
 }
+
+
+/**
+ * print_char - print a char using a va_list arg
+ * @ap: argument pointer
+ *
+ * Return: 1 on success
+ */
+
+int print_char(va_list ap)
+{
+	char ch;
+
+	ch = va_arg(ap, int);
+	return (_putchar(ch));
+}
+
+
+/**
+ * print_percent - print a single percent sign
+ * @ap: argument pointer
+ *
+ * Return: 1 on success
+ */
+
+int print_percent(va_list __attribute__ ((unused)) ap)
+{
+	return (_putchar('%'));
+}

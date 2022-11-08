@@ -9,12 +9,12 @@
 
 int _printf(const char *format, ...)
 {
-	char F;
 	int i = 0, counter = 0;
+	int (*fun)(va_list);
 	va_list ap;
 
 	if (format == NULL)
-		exit(98);
+		return (-1);
 	va_start(ap, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -22,30 +22,17 @@ int _printf(const char *format, ...)
 			counter += _putchar(format[i]);
 		else
 		{
-			F = format[i + 1];
-			switch (F)
+			if (format[i + 1] == '\0')
+				return (-1);
+
+			fun = get_fun(format[i + 1]);
+			if (fun != NULL)
 			{
-				case 'c':
-					counter += _putchar(va_arg(ap, int));
-					break;
-				case 's':
-					counter += print_str(ap);
-					break;
-				case 'd':
-				case 'i':
-					counter += print_int(ap);
-					break;
-				case '%':
-					counter += _putchar('%');
-					break;
-				case '\0':
-					exit(99);
-				default:
-					counter += _putchar('%');
-					break;
-			}
-			if (F == 'c' || F == 's' || F == 'd' || F == 'i' || F == '%')
+				counter += (*fun)(ap);
 				i++;
+			}
+			else
+				counter += _putchar(format[i]);
 		}
 	}
 	va_end(ap);
