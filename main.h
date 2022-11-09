@@ -20,16 +20,21 @@ int _putchar (char c);
 int _printf(const char *format, ...);
 int print_str(va_list ap);
 int abs(int x);
-int _pow(int a, int b);
+long int _pow(int a, int b);
 int print_int(va_list ap);
 int print_char(va_list ap);
 int print_percent(va_list __attribute__ ((unused)) ap);
 int (*get_fun(char mych))(va_list);
+int change_base(unsigned long int num, int base, char m);
 int print_binary(va_list ap);
 int print_unsigned(va_list ap);
 int print_octal(va_list ap);
 int print_hex(va_list ap);
-unsigned long int long_pow(int a, int b);
+int print_HEX(va_list ap);
+int S_format_specifier(va_list ap);
+int print_pointer(va_list ap);
+int r_format_specifier(va_list ap);
+int R_format_specifier(va_list ap);
 
 #endif
 

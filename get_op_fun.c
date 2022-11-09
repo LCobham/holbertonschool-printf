@@ -20,6 +20,11 @@ int (*get_fun(char mych))(va_list)
 		{'u', print_unsigned},
 		{'o', print_octal},
 		{'x', print_hex},
+		{'X', print_HEX},
+		{'S', S_format_specifier},
+		{'p', print_pointer},
+		{'r', r_format_specifier},
+		{'R', R_format_specifier},
 		{'\0', NULL}
 	};
 

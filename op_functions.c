@@ -81,3 +81,54 @@ int print_percent(va_list __attribute__ ((unused)) ap)
 {
 	return (_putchar('%'));
 }
+
+
+/**
+ * change_base - print a number in a different base
+ * @num: number to be printed in different base
+ * @base: base of result. Available options: 2, 8, 10, 16
+ * @m: 'm' for lowercase, else for uppercase
+ *
+ * Return: number of chars printed
+ */
+
+int change_base(unsigned long int num, int base, char m)
+{
+	char *hex_m = "0123456789abcdef";
+	char *hex_M = "0123456789ABCEDF";
+	int i, t = 0, counter = 0;
+	long int x;
+
+	switch (base)
+	{
+		case 2:
+			i = 32;
+			break;
+		case 8:
+			i = 12;
+			break;
+		case 10:
+			i = 9;
+			break;
+		case 16:
+			i = 12;
+			break;
+		default:
+			i = 16;
+			break;
+	}
+	for (; i >= 0; i--)
+	{
+		x = (long int) num / _pow(base, i);
+		if (x > 0 || i == 0)
+			t = 1;
+		if (t == 1)
+		{
+			if (m == 'm')
+				counter += _putchar(hex_m[x % base]);
+			else
+				counter += _putchar(hex_M[x % base]);
+		}
+	}
+	return (counter);
+}
