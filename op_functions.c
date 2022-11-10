@@ -95,7 +95,7 @@ int print_percent(va_list __attribute__ ((unused)) ap)
 int change_base(unsigned int num, int base, char m)
 {
 	char *hex_m = "0123456789abcdef";
-	char *hex_M = "0123456789ABCEDF";
+	char *hex_M = "0123456789ABCDEF";
 	int i, t = 0, counter = 0;
 	long int x;
 
