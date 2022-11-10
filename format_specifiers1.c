@@ -11,7 +11,7 @@ int print_binary(va_list ap)
 {
 	unsigned int n = va_arg(ap, unsigned int);
 
-	return (change_base((unsigned long int) n, 2, 'm'));
+	return (change_base(n, 2, 'm'));
 }
 
 
@@ -24,9 +24,9 @@ int print_binary(va_list ap)
 
 int print_unsigned(va_list ap)
 {
-	long int n = va_arg(ap, unsigned int);
+	unsigned int n = va_arg(ap, unsigned int);
 
-	return (change_base((unsigned long int) n, 10, 'm'));
+	return (change_base(n, 10, 'm'));
 }
 
 /**
@@ -40,7 +40,7 @@ int print_octal(va_list ap)
 {
 	unsigned int n = va_arg(ap, unsigned int);
 
-	return (change_base((unsigned long int) n, 8, 'm'));
+	return (change_base(n, 8, 'm'));
 }
 
 
@@ -53,9 +53,9 @@ int print_octal(va_list ap)
 
 int print_hex(va_list ap)
 {
-	unsigned long int n = va_arg(ap, unsigned long int);
+	unsigned int n = va_arg(ap, unsigned int);
 
-	return (change_base((unsigned long int) n, 16, 'm'));
+	return (change_base(n, 16, 'm'));
 }
 
 
@@ -68,7 +68,7 @@ int print_hex(va_list ap)
 
 int print_HEX(va_list ap)
 {
-	unsigned long int n = va_arg(ap, unsigned long int);
+	unsigned int n = va_arg(ap, unsigned int);
 
-	return (change_base((unsigned long int) n, 16, 'M'));
+	return (change_base(n, 16, 'M'));
 }

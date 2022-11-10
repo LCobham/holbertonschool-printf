@@ -20,10 +20,10 @@ int abs(int x)
  * Return: a^b
  */
 
-long int _pow(int a, int b)
+unsigned long int _pow(unsigned int a, unsigned int b)
 {
-	int i;
-	long int result = 1;
+	unsigned int i;
+	unsigned long int result = 1;
 
 	if (a == 0 && b == 0)
 		exit(98);

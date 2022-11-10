@@ -92,7 +92,7 @@ int print_percent(va_list __attribute__ ((unused)) ap)
  * Return: number of chars printed
  */
 
-int change_base(unsigned long int num, int base, char m)
+int change_base(unsigned int num, int base, char m)
 {
 	char *hex_m = "0123456789abcdef";
 	char *hex_M = "0123456789ABCEDF";

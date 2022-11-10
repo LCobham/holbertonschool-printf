@@ -38,10 +38,24 @@ int S_format_specifier(va_list ap)
 int print_pointer(va_list ap)
 {
 	unsigned long int p = va_arg(ap, unsigned long int);
-	int counter = 0;
+	int i, t = 0, counter = 0;
+	char *hex = "0123456789abcdef";
 
+	if ((void *) p == NULL)
+		return (_printf("(nil)"));
 	counter += _printf("0x");
-	return (counter + change_base(p, 16, 'm'));
+	for (i = 15; i >= 0; i--)
+	{
+		if (t == 1)
+			counter += _putchar(hex[(p / _pow(16, i)) % 16]);
+
+		else if ((p / _pow(16, i)) % 16 > 0 || i == 0)
+		{
+			t = 1;
+			counter += _putchar(hex[(p / _pow(16, i)) % 16]);
+		}
+	}
+	return (counter);
 }
 
 
@@ -60,7 +74,7 @@ int r_format_specifier(va_list ap)
 	for (i = 0; s[i] != '\0'; i++)
 		continue;
 
-	for (count = 0; i >= 0; i--)
+	for (i--, count = 0; i >= 0; i--)
 	{
 		count += _putchar(s[i]);
 	}
