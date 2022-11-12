@@ -86,6 +86,10 @@ This is a Flowchart of how it functions:
 <img width="1760" alt="_printf flowchart" src="https://user-images.githubusercontent.com/113699740/201451519-9bcfb12e-baf2-4677-801a-f96f7a2fa75c.png">
 
 
+<img width="1132" alt="getop flowchart (1)" src="https://user-images.githubusercontent.com/113699740/201480334-482a3f17-2d81-4a78-a4f6-7e47fa9a7a56.png">
+
+
+
 Author:
 Lucas Cobham
 Carolina Molina
