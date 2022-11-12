@@ -83,6 +83,9 @@ All of this files have auxiliars functions tha we used.
 
 This is a Flowchart of how it functions:
 
+<img width="1760" alt="_printf flowchart" src="https://user-images.githubusercontent.com/113699740/201451519-9bcfb12e-baf2-4677-801a-f96f7a2fa75c.png">
+
+
 Author:
 Lucas Cobham
 Carolina Molina
