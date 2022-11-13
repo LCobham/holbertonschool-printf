@@ -39,6 +39,9 @@ Converts and prints the given argument to an unsigned octal.
 .IP x,X
 Converts and prints the given argument as an unsigned hexadecimal. Lowercase x will print alphabetic characters in hex code in lowercase, and uppercase x will print them in uppercase.
 
+.IP p
+Prints a memory address in hexadecimal (starts with 0x).
+
 .IP b
 Converts the given argument to an unsigned int and prints it in binary.
 
@@ -56,6 +59,7 @@ Prints a single percent sign.
 
 
 .SH EXAMPLES
+
 
 _printf("A simple string, with no conversion specifiers.");
 
@@ -81,13 +85,11 @@ Output: Here we have a conversion specifier !
 
 ---------------------------------------------------------------
 
-
 _printf("This prints %s", "a string.");
 
 Output: This prints a string.
 
 ---------------------------------------------------------------
-
 
 _printf("This happens when NULL is passed: %s.", NULL);
 
@@ -95,13 +97,11 @@ Output: This happens when NULL is passed: (null).
 
 ---------------------------------------------------------------
 
-
 _printf("These two digits are different: %d & %i.", 5, 17);
 
 Output: These two digits are different: 5 & 17.
 
 ---------------------------------------------------------------
-
 
 _printf("Example of int overflow: %d.", 2147483647 + 1);
 
@@ -109,13 +109,11 @@ Output: Example of int overflow: -2147483648.
 
 ---------------------------------------------------------------
 
-
 _printf("The number 15 in octal is %o.", 15);
 
 Output: The number 15 in octal is 17.
 
 ---------------------------------------------------------------
-
 
 _printf("The number 13 in binary is %b.", 13);
 

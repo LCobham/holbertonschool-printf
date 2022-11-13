@@ -1,25 +1,25 @@
-C -  _printf
+# _printf project for Holberton School
 
-NAME:
+## NAME:
 _printf()
 
-SYNOPSIS
+## SYNOPSIS
 #include <main.h>
 
 int _printf(const char *format, ...);
 
-DESCRIPTION:
+## DESCRIPTION:
 We created our own version of printf. The _printf function recieves as input a string with different conversion specifiers (which will appear with a '%' followed by a letter representing a conversion specifier) and prints out the given sting to standard output. Instead of printing the conversion specifiers, optional arguments are retrieved using the variable-length argument facilities of stdarg(3).
 
 If too many arguments are passed (i.e. more arguments than conversion specifiers), additional arguments will be ignored. If the number of arguments passed is lower than the number of conversion specifiers in the string, _printf will either print garbage values for the specifiers that have no match, or segfault (most common when a string is passed as a format and no argument is given).
 
 
-RETURN:
+## RETURN:
 The return value of _printf corresponds to the number of printed characters on succes. When NULL is passed ad the format string to print, _printf will print "(nil)" to stdout and  return  -1.
 When the format string includes a '%' followed by a null character, the program will also return -1 (but previous characters of format speficiers in the string will be printed).
 
 
-CONVERSION SPEFICIERS:
+## CONVERSION SPEFICIERS:
 The accepted conversion specifiers are detailed below.
 
 <table style="width:75%">
@@ -79,65 +79,95 @@ The accepted conversion specifiers are detailed below.
 </table>
 
 
-EXAMPLES:
+## EXAMPLES:
 
 _printf("A simple string, with no conversion specifiers.");
+
 Output: A simple string, with no conversion specifiers.
 
 
+-----------------------------------------------------------------------
 _printf("Unused args are not printed.", "Hello");
+
 Output: Unused args are not printed.
 
 
+-----------------------------------------------------------------------
 _printf("Print a single percent sign: %%.");
+
 Output: Print a single percent sign: %.
 
 
+-----------------------------------------------------------------------
 _printf("Here we have a conversion specifier %c", '!');
+
 Output: Here we have a conversion specifier !
 
 
+-----------------------------------------------------------------------
 _printf("This prints %s", "a string.");
+
 Output: This prints a string.
 
 
+-----------------------------------------------------------------------
 _printf("This happens when NULL is passed: %s.", NULL);
+
 Output: This happens when NULL is passed: (null).
 
 
+-----------------------------------------------------------------------
 _printf("These two digits are different: %d & %i.", 5, 17);
+
 Output: These two digits are different: 5 & 17.
 
 
+-----------------------------------------------------------------------
 _printf("Example of int overflow: %d.", 2147483647 + 1);
+
 Output: Example of int overflow: -2147483648.
 
 
+-----------------------------------------------------------------------
 _printf("The number 15 in octal is %o.", 15);
+
 Output: The number 15 in octal is 17.
 
 
+-----------------------------------------------------------------------
 _printf("The number 13 in binary is %b.", 13);
+
 Output: The number 13 in binary is 1101.
 
 
+-----------------------------------------------------------------------
 _printf("Lets print 167 in hexadecimal: %x = %X.", 167, 167);
+
 Output: Lets print 167 in hexadecimal: a7 = A7.
 
 
+-----------------------------------------------------------------------
 _printf("%S", "Hello there\n.")
+
 Output: Hello there\x0A.
 
 
+-----------------------------------------------------------------------
 _printf("%r", ".I'm in reverse!");
+
 Output: !esrever ni m'I.
 
 
+-----------------------------------------------------------------------
 _printf("Hi %R", "reader.")
+
 Output: Hi ernqre.
 
 
-Files used:
+-----------------------------------------------------------------------
+
+
+### Files used:
 
 main.h --- It has all the macros, libraries used, structures and function prototypes.
 
@@ -151,10 +181,10 @@ format_specifiers2.c
 
 math.c 
 
-All of this files have auxiliars functions. The ones that handled the printing of different conversion specifiers were included in the array of structures, in get_op_fun.c (see Flowchart).
+All of these files have auxiliars functions. The ones that handled the printing of different conversion specifiers were included in the array of structures, in get_op_fun.c (see Flowchart).
 
 
-This is a Flowchart of how it functions:
+## FLOWCHART
 
 <img width="1760" alt="_printf flowchart" src="https://user-images.githubusercontent.com/113699740/201451519-9bcfb12e-baf2-4677-801a-f96f7a2fa75c.png">
 
