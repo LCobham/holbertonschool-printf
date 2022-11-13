@@ -19,9 +19,8 @@ The return value of _printf corresponds to the number of printed characters on s
 When the format string includes a '%' followed by a null character, the program will also return -1 (but previous characters of format speficiers in the string will be printed).
 
 
-Conversion specifiers:
-
-The accepted conversion specifiers are detailed below..
+CONVERSION SPEFICIERS:
+The accepted conversion specifiers are detailed below.
 
 <table style="width:75%">
   <tr>
@@ -154,7 +153,14 @@ math.c
 
 All of this files have auxiliars functions. The ones that handled the printing of different conversion specifiers were included in the array of structures, in get_op_fun.c (see Flowchart).
 
+
 This is a Flowchart of how it functions:
+
+<img width="1760" alt="_printf flowchart" src="https://user-images.githubusercontent.com/113699740/201451519-9bcfb12e-baf2-4677-801a-f96f7a2fa75c.png">
+
+
+<img width="1132" alt="getop flowchart (1)" src="https://user-images.githubusercontent.com/113699740/201480334-482a3f17-2d81-4a78-a4f6-7e47fa9a7a56.png">
+
 
 Authors:
 Lucas Cobham
