@@ -1,0 +1,155 @@
+./" Man page for our _printf function
+.TH _printf 3 "2022-11-13" "1.0" "_printf man page"
+
+.SH NAME
+_printf
+
+.SH SYNOPSIS
+
+#include <main.h>
+
+int _printf(const char *format, ..);
+
+.SH DESCRIPTION
+The _printf function recieves as input a string with different conversion specifiers (which will appear with a '%' followed by a letter representing a format specification) and prints out the given sting to standard output. Instead of printing the conversion specifiers, optional arguments are retrieved using the variable-length argument facilities of stdarg(3). 
+
+If too many arguments are passed (i.e. more arguments than conversion specifiers), additional arguments will be ignored. If the number of arguments passed is lower than the number of conversion specifiers in the string, _printf will either print garbage values for the specifiers that have no match, or segfault (most common when a string is passed as a format and no argument is given).
+
+.SH RETURN
+The return value of _printf corresponds to the number of printed characters on succes. When NULL is passed ad the format string to print, _printf will print "(nil)" to stdout and return -1. When the format string includes a '%' followed by a null character, the program will also return -1 (but previous characters of format speficiers in the string will be printed).
+
+
+.SH Conversion Specifiers
+
+.IP c
+Prints a char, passed as a variable argument
+
+.IP s
+Prints a string, passed as a variable argument. If NULL is passed as the variable argument, _printf prints "(null)" insteas. These characters are counted as printed chars in the return value.
+
+.IP d,i
+Prints an integer (base 10). _printf will not throw and error on integer overflow and will output a result, albeit a wrong one. 
+
+.IP u
+Converts and prints the given argument as an unsigned integer.
+
+.IP o
+Converts and prints the given argument to an unsigned octal.
+
+.IP x,X
+Converts and prints the given argument as an unsigned hexadecimal. Lowercase x will print alphabetic characters in hex code in lowercase, and uppercase x will print them in uppercase.
+
+.IP b
+Converts the given argument to an unsigned int and prints it in binary.
+
+.IP S
+Prints a given string. Non printable characters are displayed with "0x" followed by their ASCII code in hexadecimal (two digits).
+
+.IP r
+Prints a given string in reverse.
+
+.IP R
+Prints a given string encoded with ROT13.
+
+.IP %
+Prints a single percent sign.
+
+
+.SH EXAMPLES
+
+_printf("A simple string, with no conversion specifiers.");
+
+Output: A simple string, with no conversion specifiers.
+
+---------------------------------------------------------------
+
+_printf("Unused args are not printed.", "Hello");
+
+Output: Unused args are not printed.
+
+---------------------------------------------------------------
+
+_printf("Print a single percent sign: %%.");
+
+Output: Print a single percent sign: %.
+
+---------------------------------------------------------------
+
+_printf("Here we have a conversion specifier %c", '!');
+
+Output: Here we have a conversion specifier !
+
+---------------------------------------------------------------
+
+
+_printf("This prints %s", "a string.");
+
+Output: This prints a string.
+
+---------------------------------------------------------------
+
+
+_printf("This happens when NULL is passed: %s.", NULL);
+
+Output: This happens when NULL is passed: (null).
+
+---------------------------------------------------------------
+
+
+_printf("These two digits are different: %d & %i.", 5, 17);
+
+Output: These two digits are different: 5 & 17.
+
+---------------------------------------------------------------
+
+
+_printf("Example of int overflow: %d.", 2147483647 + 1);
+
+Output: Example of int overflow: -2147483648.
+
+---------------------------------------------------------------
+
+
+_printf("The number 15 in octal is %o.", 15);
+
+Output: The number 15 in octal is 17.
+
+---------------------------------------------------------------
+
+
+_printf("The number 13 in binary is %b.", 13);
+
+Output: The number 13 in binary is 1101.
+
+---------------------------------------------------------------
+
+
+_printf("Lets print 167 in hexadecimal: %x = %X.", 167, 167);
+
+Output: Lets print 167 in hexadecimal: a7 = A7.
+
+---------------------------------------------------------------
+
+
+_printf("%S", "Hello there\n.")
+
+Output: Hello there\x0A.
+
+---------------------------------------------------------------
+
+
+_printf("%r", ".I'm in reverse!");
+
+Output: !esrever ni m'I.
+
+---------------------------------------------------------------
+
+
+_printf("Hi %R", "reader.")
+
+Output: Hi ernqre.
+
+---------------------------------------------------------------
+
+.SH AUTHORS
+Lucas Cobham and Carolina Molina
